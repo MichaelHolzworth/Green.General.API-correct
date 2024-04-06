@@ -45,6 +45,7 @@ namespace Project.Green.General.Domain.Catalog{
             this.Desription = description;
             this.Brand = brand;
             this.Price = price; 
+            this.Ratings = new List<Rating>();
         }
     }
 }

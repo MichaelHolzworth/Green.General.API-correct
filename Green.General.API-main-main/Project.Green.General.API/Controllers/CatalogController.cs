@@ -24,5 +24,44 @@ namespace Project.Green.General.Api.Controllers {
             item.Id = id;
             return Ok(item);
         }
+
+        [HttpPost("{id}/ratings")]
+        public IActionResult PostRating(int id, [FromBody] Rating rating){
+
+            var item = new Item("Shirt", "Ohio State Shirt", "Nike", 29.99m);
+            item.Id = id;
+            item.AddRating(rating);
+            return Ok(item);
+        }
+        [HttpPut]
+        public IActionResult Put(int id, Item item){
+            //return Ok(item);
+            return NoContent();
+        }
+
+        /*
+        Testing put using the following data in the body of the message:
+                {
+                    "id": 1,
+                    "name": "Shirt",
+                    "description": "Ohio State Shirt",
+                    "brand": "Nike",
+                    "price": 29.99,
+                    "ratings": [
+                        {
+                            "stars": 5,
+                            "userName": "John Smith",
+                            "review": "Great!"
+                        }
+                    ]
+                }
+        */
+
+        [HttpDelete("{id:int}")]
+        public IActionResult Delete (int id){
+            //return Ok("Deleted!");
+            return NoContent();
+        }
+
     }
 }
