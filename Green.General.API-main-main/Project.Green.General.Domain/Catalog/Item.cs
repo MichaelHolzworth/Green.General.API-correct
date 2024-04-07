@@ -6,9 +6,9 @@ namespace Project.Green.General.Domain.Catalog{
 
         
             public int Id { get; set;}
-            public string Name { get; set;}
-            public string Desription { get; set; }
-            public string Brand { get; set; }
+            public string? Name { get; set;}
+            public string? Desription { get; set; }
+            public string? Brand { get; set; }
             public decimal Price { get; set; }
             
             public List<Rating> Ratings { get; set; }
@@ -18,26 +18,21 @@ namespace Project.Green.General.Domain.Catalog{
             }
 
             
-        public Item(string name, string description, string brand, decimal price)
-        {
+        public Item(string name, string description, string brand, decimal price){
         
-            if(string.IsNullOrEmpty(name))
-            {
+            if(string.IsNullOrEmpty(name)){
                 throw new ArgumentNullException(name);
             }
 
-            if(string.IsNullOrEmpty(Desription))
-            {
-                throw new ArgumentNullException(Desription);
+            if(string.IsNullOrEmpty(description)){
+                throw new ArgumentNullException(description);
             }
 
-            if(string.IsNullOrEmpty(brand))
-            {
+            if(string.IsNullOrEmpty(brand)){
                 throw new ArgumentNullException(brand);
             }
 
-            if(price < 0.00m)
-            {
+            if(price < 0.00m){
                 throw new ArgumentException("Price must be greater than 0.");
             }
 
